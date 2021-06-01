@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>{title}</title>
+    <title>Item List</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-fixed/">
 
@@ -26,7 +26,7 @@
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
-        -webkit-user-select : none;
+        -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
       }
@@ -52,12 +52,37 @@
     {% include 'navbar.html' %}
 
 <main class="container">
+  {% if messages %}
+              <ul class="messages success">
+                    {% for message in messages %}
+                          <li{% if message.tags %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+              </ul>
+  {% endif %}
   <div class="bg-light p-5 rounded">
-    <h1>SilverS</h1>
-    <form method="POST" action=''>{% csrf_token %}
-        {{ form|crispy}}
-            <input type="submit" value="Save" />
-        </form>
+    <div class="header">{{header}}</div>
+    <a href='{% url 'issue_items' queryset.id %}'><div class="btn btn-danger">SORTIR CET ITEM</div></a>
+    <a href='{% url 'receive_items' queryset.id %}'><div class="btn btn-primary">RECEVOIR CET ITEM</div></a>
+    <br><br>
+            <div class="display_table">
+                <table class="table">
+                <tr>
+                    <th>NOM ITEM</th>
+                    <th>QUANTITE EN STOCK</th>
+                    <th>DERNIERE MAJ</th>
+                    <th>RECOMMANDER</th>
+                </tr>
+                <tr>
+                    <td>{{queryset.item_name}}</td>
+                    <td>{{queryset.quantity}}</td>
+                    <td>{{queryset.last_update}}</td>
+                    <td>{{queryset.reorder_level}}</td>
+                </tr>
+            </table> 
+    </div>
+
+
+
   </div>
 </main>
 

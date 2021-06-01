@@ -2,3 +2,54 @@ body {
     background-color: #f1dfd1;
     background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
 }
+
+.table {
+    font-size: 13px;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+
+.table tr:nth-child(odd) {
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+.table tr:nth-child(even) {
+    font-weight: bold;
+    background-color:rgb(157, 157, 157);
+}
+
+th {
+    background-color:rgb(34, 34, 34);
+    color: white;
+}
+
+.display_table {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    box-shadow: 12px 12px 20px 6px #808080
+}
+
+.header {
+    font-family: helvetica, arial;
+    color: #6d7277;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 6px 6px 6px #c9c6c6;
+    display: block;
+    font-weight: bolder;
+}
+
+.success {
+    list-style: none;
+    background-color:lightgray;
+    color: white;
+    box-shadow: 12px 12px 12px #c9c6c6;
+    text-align: center;
+}
